@@ -1,0 +1,104 @@
+
+a, a:hover, a:focus { 
+	text-decoration: none; 
+	-webkit-transition: all 150ms ease-in; 
+	-moz-transition: all 150ms ease-in; 
+	-o-transition: all 150ms ease-in; 
+	transition: all 150ms ease-in;
+}
+
+.clear { 
+	clear: both;
+}
+
+.dps_gallery img { 
+	width: 100%; 
+	margin-top: 30px;
+}
+
+.fadeInDown	{ 
+}
+
+/*------------------------------------------------------
+	Gallery Styles 
+--------------------------------------------------------*/
+.gallery-item { 
+	margin-bottom: 0px;
+ 	position: relative;
+	overflow: hidden;
+}
+.gallery-item .content-gallery { 
+	text-align: center;
+}
+.gallery-item .content-gallery h3 { 
+	  color: #b10021;
+	  font-size: 16px;
+	  font-weight: 300;
+	  margin-top: 5px;
+	  padding-bottom: 5px;
+	  display: inline-block;
+}
+.gallery-item img { 
+ width: 100%;
+}
+.gallery-item .overlay { 
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: block;
+  -webkit-transition: all 50ms ease-in-out;
+  -moz-transition: all 50ms ease-in-out;
+  -ms-transition: all 50ms ease-in-out;
+  -o-transition: all 50ms ease-in-out;
+  transition: all 50ms ease-in-out;
+}
+.gallery-item .overlay a { 
+  color: #ffffff;
+  text-align: center;
+  line-height: 32px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin-top: -16px;
+  margin-left: -16px;
+  font-size: 24px;
+}
+
+
+/******************************* Gallery Styles **************************************/
+
+.container { position:relative; width: 894px; height: 853px; padding-left: 0; margin: 0 auto; }
+
+
+.content {  position: absolute; top: 470px; left: 20px; width: 100%; text-align: center; }
+
+.content-description { margin-left: -30px; }
+.pagination { position: absolute; top: 790px; text-align: center; }
+.pagination li {
+  font-size: 16px;
+  display: inline-block;
+  list-style: none;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-color: #65a8dd;
+  margin-right: 5px;
+  padding: 2px;
+  cursor: pointer;
+
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.pagination li:hover, .pagination li.active { background-color: #a2c044; }
+#gallery-content .pagination { left: 398.5px; }
+
+/************************** end Gallery Styles *******************************/
+

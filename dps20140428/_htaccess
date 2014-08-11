@@ -1,0 +1,7 @@
+
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^dps\.ebookplz\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.dps\.ebookplz\.com$
+RewriteRule ^/?$ "http\:\/\/dps\.ebookplz\.com\/index\.html" [R=301,L]
+
