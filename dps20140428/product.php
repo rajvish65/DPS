@@ -27,17 +27,38 @@ include_once "common.php";
 <script src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('div.content').hide().first().show();
+	//$('div.content').hide().first().show();
+	
+	
+	showDiv(1);
 });
+
+
+function isArray(obj) {
+return obj.constructor == Array;
+}
 
 function showDiv(clickedId)
 {
+
+$.post('product-details.php', 'productId='+clickedId, function(data) {
+var parsed = JSON.parse(data);
+
+$("#productDescription").empty().append(parsed.ProductDesc);
+$("#productName").empty().append(parsed.ProductName);
+
+$("#imageSlider").empty();
+for(var i =1 ;i<=Object.keys(parsed.Images).length;i++)
+{
+	var imgLoc = parsed.Images[i].trim();
+	//alert(imgLoc);
+	$("#imageSlider").append("<li><img src="+imgLoc+"><li>");
+	
+}
+});
+
 	$("a.act").removeClass('act');
 	$("a#"+clickedId).addClass('act');
-	$('div#tab'+clickedId).show();
-	$('div#tab'+clickedId).css('class','act');
-	$('div.content').not('#tab'+clickedId).hide();
-	$('div.content').not('#tab'+clickedId).css('class','');
 }
 </script>
 
@@ -46,10 +67,7 @@ function showDiv(clickedId)
 <body>
 <div id="home" class="wrap">
 <?php echo topMenu("product");?>
- 
-
     <section class="container cf"><!--container-->
-
     <article class="breadcrumb" style="padding-bottom: 10px;">
 	<!-- <a href="index.php" title="">Home</a>/<a href="javascript:void(0);" title="">Products</a>/&nbsp;Taper Roller Bearings   -->
     </article>
@@ -63,13 +81,13 @@ function showDiv(clickedId)
     </li>
     <li >
     <a href="javascript:showDiv(2);" title="" id="2">
-    <span class="pthumb"><img src="images/Product/U C Bearing Compressed/DSC_0171_compressed.jpg"></span>
+    <span class="pthumb"><img src="images/Product/UCBearingCompressed/DSC_0171_compressed.jpg"></span>
     <span class="pdesc">U C Bearings</span>
     </a>
     </li>
     <li >
     <a href="javascript:showDiv(3);" title="" id="3">
-    <span class="pthumb"><img src="images/Product/Cylindrical Roller Bearing Compressed/21_resize_compressed.jpg"></span>
+    <span class="pthumb"><img src="images/Product/CylindricalRollerBearingCompressed/21_resize_compressed.jpg"></span>
     <span class="pdesc">Cylindrical roller bearings</span>
     </a>
     </li>
@@ -108,28 +126,14 @@ function showDiv(clickedId)
 	
     <article class="product_lhs cf" id="1">
     <div id="tab1" class="content">
-    <h1>Taper Roller Bearings</h1>
+    <h1 id="productName"></h1>
     <div class="site-slider">
-        <ul class="bxslider">
-            <li>
-                <img src="images/Product/Taper Roller Bearing/rsz_taper_1.jpg" alt="slider image 1">
-            </li>
-            <li>
-                <img src="images/Product/Taper Roller Bearing/rsz_taper_2.jpg" alt="slider image 2">
-            </li>
-            <li>
-                <img src="images/Product/Taper Roller Bearing/rsz_taper_3.jpg" alt="slider image 3">
-            </li>
-            <li>
-                <img src="images/Product/Taper Roller Bearing/rsz_taper_4.jpg" alt="slider image 4">
-            </li>
-            <li>
-                <img src="images/Product/Taper Roller Bearing/rsz_taper_5.jpg" alt="slider image 5">
-            </li>
+        <ul class="bxslider" id="imageSlider">
+        
         </ul> <!-- /.bxslider -->
     </div> <!-- /.site-slider -->
     <p class="heading">Description</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+    <p id="productDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
     <div class="table">
      <p class="heading">Range</p>
      <table width="600" border="1" cellspacing="0" cellpadding="0">
@@ -169,380 +173,7 @@ function showDiv(clickedId)
     </div>
     </article>    
 	
-	
-	<article class="product_lhs cf" id="2">
-    <div id="tab2" class="content">
-    <h1>U C Bearings</h1>
-    <div class="site-slider">
-        <ul class="bxslider">
-            
-            <li>
-                <img src="images/Product/U C Bearing Compressed/rsz_dsc_0169_compressed.jpg"  alt="slider image 2">
-            </li>
-            <li>
-                <img src="images/Product/U C Bearing Compressed/rsz_dsc_0172_compressed.jpg" alt="slider image 3">
-            </li>
-        </ul> <!-- /.bxslider -->
-    </div> <!-- /.site-slider -->
-    <p class="heading">Description</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-    <div class="table">
-     <p class="heading">Range</p>
-     <table width="600" border="1" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-</table>
-
-    </div>
-    </div>
-    </article> 
-	
-	
-	<article class="product_lhs cf">
-    <div id="tab3" class="content">
-    <h1>Cylindrical Roller Bearings</h1>
-   <div class="site-slider">
-        <ul class="bxslider">
-            <li>
-                <img src="images/slider/slide1.jpg" alt="slider image 1">
-            </li>
-            <li>
-                <img src="images/slider/slide2.jpg" alt="slider image 2">
-            </li>
-            <li>
-                <img src="images/slider/slide3.jpg" alt="slider image 3">
-            </li>
-            <li>
-                <img src="images/slider/slide4.jpg" alt="slider image 4">
-            </li>
-            <li>
-                <img src="images/slider/slide5.jpg" alt="slider image 5">
-            </li>
-        </ul> <!-- /.bxslider -->
-    </div> <!-- /.site-slider -->
-    <p class="heading">Description</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-    <div class="table">
-     <p class="heading">Range</p>
-     <table width="600" border="1" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-</table>
-
-    </div>
-    </div>
-    </article> 
-	
-	
-	
-	
-	<article class="product_lhs cf" id="2">
-    <div id="tab4" class="content">
-    <h1>Idley Pulley Bearings</h1>
-    <div class="site-slider">
-        <ul class="bxslider">
-            <li>
-                <img src="images/slider/slide1.jpg" alt="slider image 1">
-            </li>
-            <li>
-                <img src="images/slider/slide2.jpg" alt="slider image 2">
-            </li>
-            <li>
-                <img src="images/slider/slide3.jpg" alt="slider image 3">
-            </li>
-            <li>
-                <img src="images/slider/slide4.jpg" alt="slider image 4">
-            </li>
-            <li>
-                <img src="images/slider/slide5.jpg" alt="slider image 5">
-            </li>
-        </ul> <!-- /.bxslider -->
-    </div> <!-- /.site-slider -->
-    <p class="heading">Description</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-    <div class="table">
-     <p class="heading">Range</p>
-     <table width="600" border="1" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-</table>
-
-    </div>
-    </div>
-    </article> 
-	
-		<article class="product_lhs cf" id="2">
-    <div id="tab5" class="content">
-    <h1>Needle Bearings</h1>
-    <div class="site-slider">
-        <ul class="bxslider">
-            <li>
-                <img src="images/slider/slide1.jpg" alt="slider image 1">
-            </li>
-            <li>
-                <img src="images/slider/slide2.jpg" alt="slider image 2">
-            </li>
-            <li>
-                <img src="images/slider/slide3.jpg" alt="slider image 3">
-            </li>
-            <li>
-                <img src="images/slider/slide4.jpg" alt="slider image 4">
-            </li>
-            <li>
-                <img src="images/slider/slide5.jpg" alt="slider image 5">
-            </li>
-        </ul> <!-- /.bxslider -->
-    </div> <!-- /.site-slider -->
-    <p class="heading">Description</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-    <div class="table">
-     <p class="heading">Range</p>
-     <table width="600" border="1" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-</table>
-
-    </div>
-    </div>
-    </article> 
-	
-    <article class="product_lhs cf" id="2">
-    <div id="tab6" class="content">
-    <h1>Thrust Roller Bearings</h1>
-    <div class="site-slider">
-        <ul class="bxslider">
-            <li>
-                <img src="images/slider/slide1.jpg" alt="slider image 1">
-            </li>
-            <li>
-                <img src="images/slider/slide2.jpg" alt="slider image 2">
-            </li>
-            <li>
-                <img src="images/slider/slide3.jpg" alt="slider image 3">
-            </li>
-            <li>
-                <img src="images/slider/slide4.jpg" alt="slider image 4">
-            </li>
-            <li>
-                <img src="images/slider/slide5.jpg" alt="slider image 5">
-            </li>
-        </ul> <!-- /.bxslider -->
-    </div> <!-- /.site-slider -->
-    <p class="heading">Description</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-    <div class="table">
-     <p class="heading">Range</p>
-     <table width="600" border="1" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-</table>
-
-    </div>
-    </div>
-    </article> 
-	
-	<article class="product_lhs cf" id="2">
-    <div id="tab7" class="content">
-    <h1>Steering Bearings</h1>
-    <div class="site-slider">
-        <ul class="bxslider">
-            <li>
-                <img src="images/slider/slide1.jpg" alt="slider image 1">
-            </li>
-            <li>
-                <img src="images/slider/slide2.jpg" alt="slider image 2">
-            </li>
-            <li>
-                <img src="images/slider/slide3.jpg" alt="slider image 3">
-            </li>
-            <li>
-                <img src="images/slider/slide4.jpg" alt="slider image 4">
-            </li>
-            <li>
-                <img src="images/slider/slide5.jpg" alt="slider image 5">
-            </li>
-        </ul> <!-- /.bxslider -->
-    </div> <!-- /.site-slider -->
-    <p class="heading">Description</p>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-    <div class="table">
-     <p class="heading">Range</p>
-     <table width="600" border="1" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-  <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-    <tr>
-    <td>09067/95</td>
-    <td>32015</td>
-    <td>409022 [Double Row]</td>
-  </tr>
-</table>
-
-    </div>
-    </div>
-    </article> 
+	 
     <div class="cf"></div>
 
 
@@ -553,7 +184,7 @@ function showDiv(clickedId)
   <? echo footerText();?>
 </div>
 <?php echo includeJS();?>
-<script src="js6/vendor/jquery-1.10.1.min.js"></script>
+
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
     
     <script src="js/plugins.js"></script>

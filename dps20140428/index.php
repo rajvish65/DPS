@@ -66,7 +66,7 @@ $(document).ready(function() {
              
             </li>
             <li class="clone">
-              <img class="image_resize" src="images/Product/Taper Roller Bearing/rsz_taper_1.jpg" alt="slide 3" />
+              <img class="image_resize" src="images/Product/TaperRollerBearing/rsz_taper_1.jpg" alt="slide 3" />
            
             </li>
 			<li class="clone">
