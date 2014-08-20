@@ -1,7 +1,5 @@
 <?php
-
 include_once "common.php";
-
 ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
@@ -27,9 +25,119 @@ include_once "common.php";
 <script src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	//$('div.content').hide().first().show();
+
+var clickedId = localStorage.getItem("clickedId");
+
+    $("#next").click(function(){
 	
+	clickedId = localStorage.getItem("clickedId");
 	
+	$.post('product-details.php', 'productId='+clickedId, function(data){
+var parsed = JSON.parse(data);
+
+$("#productDescription").empty().append(parsed.ProductDesc);
+$("#productName").empty().append(parsed.ProductName);
+
+var lastImageId = Number(1);
+
+ $('ul.slides').find('li').each(function(j, li)
+ {
+    $('li.clone').find('img').each(function(j, li)
+	{
+		  lastImageId = Number($(this).attr('id'));
+    });      
+ });
+ 
+var newImageId = Number(lastImageId) + Number(1);		
+
+	var imageArrayLength = Number(Object.keys(parsed.Images).length);
+	lastImageId = Number(lastImageId);
+	
+	if( +imageArrayLength >  +lastImageId)
+	{
+		newImageId = Number(newImageId);
+	}
+	else
+	{
+		newImageId = Number(1);
+	}
+	
+	var i = Number(newImageId);
+		for(i = newImageId ;i <= newImageId; i++)
+		{
+			var imgLoc = parsed.Images[i].trim();
+			$("#image_slider").empty().append("<li class='clone'><img id="+newImageId+" src="+imgLoc+"><li>");
+		}
+});
+			//loadScript();
+        if ($(".divs div.content:visible").next().length != 0)
+	    {		
+            $(".divs div.content:visible").next().addClass("animated fadeInLeft").show().prev().hide() ;
+        }
+		else {
+            $(".divs div.content:visible").hide();
+            $(".divs div.content:first").addClass("animated fadeInLeft").show() ;
+			
+        }
+        return false;
+    });
+
+    $("#prev").click(function(){
+	
+	clickedId = localStorage.getItem("clickedId");
+	$.post('product-details.php', 'productId='+clickedId, function(data){
+var parsed = JSON.parse(data);
+
+$("#productDescription").empty().append(parsed.ProductDesc);
+$("#productName").empty().append(parsed.ProductName);
+
+var lastImageId = Number(1);
+
+ $('ul.slides').find('li').each(function(j, li)
+ {
+    $('li.clone').find('img').each(function(j, li)
+	{
+         // alert($(this).attr('id'));
+		  lastImageId = Number($(this).attr('id'));
+    });      
+ });
+
+var newImageId = Number(lastImageId) + Number(1);		
+
+	var imageArrayLength = Number(Object.keys(parsed.Images).length);
+	lastImageId = Number(lastImageId);
+	
+	if( +imageArrayLength >  +lastImageId)
+	{
+		newImageId = Number(newImageId);
+	}
+	else
+	{
+		newImageId = Number(1);
+	}
+	
+	var i = Number(newImageId);
+		for(i = newImageId ;i <= newImageId; i++)
+		{
+			var imgLoc = parsed.Images[i].trim();
+			$("#image_slider").empty().append("<li class='clone'><img id="+newImageId+" src="+imgLoc+"><li>");
+		}
+});
+	        //loadScript();				  
+        if ($(".divs div.content:visible").prev().length != 0)
+		{
+		   
+            $(".divs div.content:visible").prev().addClass("animated fadeInRight").show().next().hide();
+        }
+		else {
+		   
+            $(".divs div.content:visible").hide();
+            $(".divs div.content:last").addClass("animated fadeInRight").show();
+			
+        }
+        return false;
+    });
+
 	showDiv(1);
 });
 
@@ -40,6 +148,7 @@ return obj.constructor == Array;
 
 function showDiv(clickedId)
 {
+localStorage.setItem("clickedId",clickedId);
 
 $.post('product-details.php', 'productId='+clickedId, function(data) {
 var parsed = JSON.parse(data);
@@ -47,13 +156,11 @@ var parsed = JSON.parse(data);
 $("#productDescription").empty().append(parsed.ProductDesc);
 $("#productName").empty().append(parsed.ProductName);
 
-$("#imageSlider").empty();
-for(var i =1 ;i<=Object.keys(parsed.Images).length;i++)
+$("#image_slider").empty();
+for(var i =1 ;i<=1;i++)
 {
 	var imgLoc = parsed.Images[i].trim();
-	//alert(imgLoc);
-	$("#imageSlider").append("<li><img src="+imgLoc+"><li>");
-	
+	$("#image_slider").empty().append("<li class='clone'><img class='imageclass' id="+i+" src="+imgLoc+"><li>");
 }
 });
 
@@ -127,11 +234,44 @@ for(var i =1 ;i<=Object.keys(parsed.Images).length;i++)
     <article class="product_lhs cf" id="1">
     <div id="tab1" class="content">
     <h1 id="productName"></h1>
-    <div class="site-slider">
-        <ul class="bxslider" id="imageSlider">
-        
-        </ul> <!-- /.bxslider -->
-    </div> <!-- /.site-slider -->
+ 
+	
+	
+	
+	<div class="container" id="home">
+    <div class="row">
+      <div class="col col-md-12">        
+        <div class="flexslider">
+          <ul class="slides" id="image_slider">
+		     
+          </ul>
+        </div>            
+      </div>
+    </div>
+  </div>
+  
+  <span class="button">
+
+ <a href="javascript:void(0);" title="" id="prev"><img src="images/PrevProd.jpg"  align="absmiddle" style="position: absolute;top: 510px; left: 985px;"></a>
+ <a href="javascript:void(0);" title=""  id="next"><img src="images/NextProd.jpg"  align="absmiddle"style="position: absolute;top: 510px; left: 1028px;" ></a>
+
+ </span
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
     <p class="heading">Description</p>
     <p id="productDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
     <div class="table">

@@ -3,7 +3,7 @@ $arrBooks = array(
 '1' => array(
 'ProductName'=>'Taper Roller Bearings',
 'ProductDesc'=>'Taper Roller Bearings Description',
-'Images' => array('1'=>'images/Product/TaperRollerBearing/rsz_taper_1.jpg','2'=>'images/Product/TaperRollerBearing/rsz_taper_2.jpg')
+'Images' => array('1'=>'images/Product/TaperRollerBearing/rsz_taper_1.jpg','2'=>'images/Product/TaperRollerBearing/rsz_taper_2.jpg','3'=>'images/Product/TaperRollerBearing/rsz_taper_3.jpg')
 ),
 
 '2' => array(
