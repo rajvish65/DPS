@@ -106,7 +106,7 @@ $(document).ready(function() {
 			</div>
             <div class="pro_desc">
               <p>It is best suited for use under heavy load and impact load.</p>
-              <p class="readmore"><a href="product.php" title="">Read more</a></p>
+              <p class="readmore"><a href="product.php?productId=1" title="">Read more</a></p>
             </div>
           </div>
           <div class="pro_box">
@@ -231,26 +231,29 @@ $(document).ready(function() {
         <div class="row dps_certificate">
         	<div class="col-md-4 col-sm-12">
             	<div class="gallery-item">
-							<img src="images/Certificate/certificate_temp01.jpg" alt="certificate 1">
+							<!-- <img src="images/Certificate/certificate_temp01.jpg" alt="certificate 1"> -->
+							
+							<img src="images/Certificate/certificate-completion-1555227.jpg">
+							
 							<div class="overlay">
-								<a href="images/Certificate/certificate_temp01.jpg" data-rel="lightbox" class="fa fa-arrows-alt"></a>
+								<a href="images/Certificate/certificate-completion-1555227.jpg" data-rel="lightbox" class="fa fa-arrows-alt"></a>
 							</div>
 						</div>
           </div>
             <div class="col-md-4 col-sm-12">
             	<div class="gallery-item">
-							<img src="images/Certificate/certificate_temp02.jpg" alt="certificate 2">
+							<img src="images/Certificate/education-certificate-47a356.jpg" alt="certificate 2">
 							<div class="overlay">
-								<a href="images/Certificate/certificate_temp02.jpg" data-rel="lightbox" class="fa fa-arrows-alt"></a>
+								<a href="images/Certificate/education-certificate-47a356.jpg" data-rel="lightbox" class="fa fa-arrows-alt"></a>
 							</div>
 						</div>
             </div>
 
             <div class="col-md-4 col-sm-12">
             	<div class="gallery-item">
-							<img src="images/Certificate/certificate_temp03.jpg" alt="certificate 3">
+							<img src="images/Certificate/iso-icons-25173361.jpg" alt="certificate 3">
 							<div class="overlay">
-								<a href="images/Certificate/certificate_temp03.jpg" data-rel="lightbox" class="fa fa-arrows-alt"></a>
+								<a href="images/Certificate/iso-icons-25173361.jpg" data-rel="lightbox" class="fa fa-arrows-alt"></a>
 							</div>
 						</div>
             </div>
@@ -263,17 +266,17 @@ $(document).ready(function() {
 		<ul >
 		<li style="padding-bottom: 10px;text-align:justify"><a href="news.php" title=""
 		 
-          <p class="news_title">News Article 1</p> <p class="news_desc">30-09-2012</p>
+          <p class="news_title">Launched a New Product - Steering Bearings</p> <p class="news_desc">30-09-2012</p>
           <p class="news_desc">News Article 1 Description. <br/> hfsdflk sjdfjls djflkjsd ljfsdj fjsdjf </p><br/><br/>
         </li>	
 		<li style="padding-bottom: 10px;text-align:justify" ><a href="news.php" title=""
 		
-          <p class="news_title">News Article 2</p>	<p class="news_desc">29-09-2012</p>
+          <p class="news_title">Never seen before Cylindrical Bearings are Out!</p>	<p class="news_desc">29-09-2012</p>
           <p class="news_desc">News Article 2 Description. <br/> jjsad dsajdkjas dsajd jdajd jdjasd djasdj </p><br/><br/>
       	</li>
 		 <li style="padding-bottom: 10px;text-align:justify" ><a href="news.php" title=""
 		
-          <p class="news_title">News Article 3</p>	<p class="news_desc">28-09-2012</p>
+          <p class="news_title">Taper Roller Bearings with the untouched finesse!</p>	<p class="news_desc">28-09-2012</p>
           <p class="news_desc">News Article 3 Description. <br/> jjsad dsajdkjas dsajd jdajd jdjasd djasdj </p><br/>
       	</li>
 		</ul>
@@ -284,8 +287,8 @@ $(document).ready(function() {
 	  </div>
       <div class="rhs_box2 cf">
         <h2>Customize Bearings</h2>
-        <p class="bdesc">makes your own customized bearings as per the requirment</p>
-        <a href="javascript:void(0);" title=""><img src="images/barrow.jpg" width="32" height="33" border="0" alt=""/></a> </div>
+        <p class="bdesc">Create your own customized bearings as per your requirement</p>
+        <a href="contact-us.php" title=""><img src="images/barrow.jpg" width="32" height="33" border="0" alt=""/></a> </div>
     </article>
     <div class="cf"></div>
 <?php echo footer()?>

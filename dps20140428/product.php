@@ -1,5 +1,6 @@
 <?php
 include_once "common.php";
+
 ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
@@ -21,10 +22,18 @@ include_once "common.php";
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/dpsProductSlide_style.css">
 
+
+<style>
+.imageclass{
+height:298px;
+}
+</style>
+
 <!--JavaScript--->
 <script src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+
 
 var clickedId = localStorage.getItem("clickedId");
 
@@ -66,7 +75,7 @@ var newImageId = Number(lastImageId) + Number(1);
 		for(i = newImageId ;i <= newImageId; i++)
 		{
 			var imgLoc = parsed.Images[i].trim();
-			$("#image_slider").empty().append("<li class='clone'><img id="+newImageId+" src="+imgLoc+"><li>");
+			$("#image_slider").empty().append("<li class='clone'><img class='imageclass' id="+newImageId+" src="+imgLoc+"><li>");
 		}
 });
 			//loadScript();
@@ -97,7 +106,6 @@ var lastImageId = Number(1);
  {
     $('li.clone').find('img').each(function(j, li)
 	{
-         // alert($(this).attr('id'));
 		  lastImageId = Number($(this).attr('id'));
     });      
  });
@@ -120,7 +128,7 @@ var newImageId = Number(lastImageId) + Number(1);
 		for(i = newImageId ;i <= newImageId; i++)
 		{
 			var imgLoc = parsed.Images[i].trim();
-			$("#image_slider").empty().append("<li class='clone'><img id="+newImageId+" src="+imgLoc+"><li>");
+			$("#image_slider").empty().append("<li class='clone'><img class='imageclass' id="+newImageId+" src="+imgLoc+"><li>");
 		}
 });
 	        //loadScript();				  

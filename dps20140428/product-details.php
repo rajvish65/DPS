@@ -15,27 +15,27 @@ $arrBooks = array(
 '3' => array(
 'ProductName'=>'Cylindrical Roller Bearings',
 'ProductDesc'=>'Cylindrical Roller Bearings Description',
-'Images' => array()
+'Images' => array('1'=>'images/Product/no_products_found.jpg')
 ),
 '4' => array(
 'ProductName'=>'Idley Pulley Bearings',
 'ProductDesc'=>'Idley Pulley Bearings Description',
-'Images' => array('1'=>'image1','2'=>'image2')
+'Images' => array('1'=>'images/Product/no_products_found.jpg')
 ),
 '5' => array(
 'ProductName'=>'Needle Bearings',
 'ProductDesc'=>'Needle Bearings Description',
-'Images' => array('1'=>'image1','2'=>'image2')
+'Images' => array('1'=>'images/Product/no_products_found.jpg')
 ),
 '6' => array(
 'ProductName'=>'Thrust Roller Bearings',
 'ProductDesc'=>'Thrust Roller Bearings Description',
-'Images' => array('1'=>'image1','2'=>'image2')
+'Images' => array('1'=>'images/Product/no_products_found.jpg')
 ),
 '7' => array(
 'ProductName'=>'Steering Bearings',
 'ProductDesc'=>'Steering Description',
-'Images' => array('1'=>'image1','2'=>'image2')
+'Images' => array('1'=>'images/Product/no_products_found.jpg')
 )
 
 );
