@@ -233,8 +233,8 @@ for(var i =1 ;i<=1;i++)
     </ul>
     <div class="rhs_box2 cf">
         <h2>Customize Bearings</h2>
-        <p class="bdesc">makes your own customized bearings as per the requirment</p>
-        <a href="javascript:void(0);" title=""><img src="images/barrow.jpg" width="32" height="33" border="0" alt=""/></a> </div>
+        <p class="bdesc">Create your own customized bearings as per your requirment</p>
+        <a href="contact-us.php" title=""><img src="images/barrow.jpg" width="32" height="33" border="0" alt=""/></a> </div>
     </article>
 	
 	
@@ -266,25 +266,12 @@ for(var i =1 ;i<=1;i++)
  </span
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-    <p class="heading">Description</p>
+	<div>
+	<p class="heading" style="padding-top:30px;">Description</p>
     <p id="productDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
     <div class="table">
-     <p class="heading">Range</p>
-     <table width="600" border="1" cellspacing="0" cellpadding="0">
+  <!--    <p class="heading">Range</p>
+    <table width="600" border="1" cellspacing="0" cellpadding="0">
   <tr>
     <td>09067/95</td>
     <td>32015</td>
@@ -315,9 +302,11 @@ for(var i =1 ;i<=1;i++)
     <td>32015</td>
     <td>409022 [Double Row]</td>
   </tr>
-</table>
+</table> -->
 
     </div>
+	</div>
+	
     </div>
     </article>    
 	
